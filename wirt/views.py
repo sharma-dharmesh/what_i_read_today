@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    """The home page for wirt"""
+    return render(request, 'wirt_pages/index.html')
