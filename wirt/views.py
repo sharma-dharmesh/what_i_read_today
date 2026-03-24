@@ -56,7 +56,7 @@ def new_entry(request, topic_id):
             new_entry.save()
             return redirect('wirt:topic', topic_id = topic_id)
         
-        # Display a blank or invalid form
-        context = {'topic': topic, 'form': form}
-        return render(request, 'wirt_pages/new_entry.html', context)
+    # Display a blank or invalid form
+    context = {'topic': topic, 'form': form}
+    return render(request, 'wirt_pages/new_entry.html', context)
     
