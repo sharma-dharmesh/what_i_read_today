@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     
     # My Apps
     'wirt',
+    'accounts',
 
     # Default Djanog apps
     'django.contrib.admin',
@@ -120,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# My settings
+LOGIN_REDIRECT_URL = 'wirt:index'
