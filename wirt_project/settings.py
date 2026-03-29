@@ -124,3 +124,4 @@ STATIC_URL = 'static/'
 
 # My settings
 LOGIN_REDIRECT_URL = 'wirt:index'
+LOGOUT_REDIRECT_URL = 'wirt:index'
