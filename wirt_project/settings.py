@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'wirt',
     'accounts',
 
+    # Third Party Apps
+    'django_bootstrap5',
+
     # Default Djanog apps
     'django.contrib.admin',
     'django.contrib.auth',

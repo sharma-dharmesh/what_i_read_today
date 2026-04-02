@@ -1,8 +1,60 @@
-<p>
-    <a href="{% url 'wirt:index' %}">Home</a>
-    <a href="{% url 'wirt:topics' %}">Topics</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <tilte>WIRT</tilte>
 
-{% if user.is_authenticated %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'wirt:index' %}">Wirt</a>
+
+            <button class="navbar-toggler" type="buton" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'wirt:topics' %}">
+                            Topics</a>
+                    </li>
+                </ul>
+
+                <!--Account related links-->
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text me-2">Hello, {{ user.username }}</span>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:register' %}">
+                            Register
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:login' %}">
+                            Login
+                        </a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
     Hello {{ user.username }}.
 {% else %}
     <a href="{% url 'accounts:register' %}">Register</a>
@@ -18,3 +70,6 @@
         <button name="submit">Log out</button>
     </form>
 {% endif %}
+
+</body>
+</html>
