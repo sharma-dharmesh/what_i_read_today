@@ -49,27 +49,24 @@
                     {% endif %}
 
                 </ul>
+
+                {% if user.is_authenticated %}
+                <form action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button name="submit" class="btn btn-outline-secondary btn-sm">
+                        logout
+                    </button>
+                </form>
+                {% endif %}
+
             </div>
         </div>
     </nav>
 
-
-
-    Hello {{ user.username }}.
-{% else %}
-    <a href="{% url 'accounts:register' %}">Register</a>
-    <a href="{% url 'accounts:login' %}">Log in</a>
-{% endif %}
-</p>
-{% block content %} {% endblock content %}
-
-{% if user.is_authenticated %}
-    <hr />
-    <form action="{% url 'accounts:logout' %}" method="post">
-        {% csrf_token %}
-        <button name="submit">Log out</button>
-    </form>
-{% endif %}
-
+    <main class="container">
+        <div class="pb-2 mb-2 border-bottom">
+            {% block page_header %} {% endblock page_header %}
+        </div>
+    </main>
 </body>
 </html>
