@@ -1,0 +1,12 @@
+{% extends 'wirt_pages/base.html' %}
+
+{% block page_header %}
+    <h2>I think you entered the wrong url!!</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <p>
+        Why don't you start with the 
+        <a href="{% url 'wirt:index' %}">home page</a>
+    </p>
+{% endblock content %}
